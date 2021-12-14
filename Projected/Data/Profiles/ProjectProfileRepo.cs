@@ -1,4 +1,5 @@
-﻿using Projected.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Projected.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,57 @@ namespace Projected.Data.Profiles
             _context = context;
         }
 
-        public async Task<IEnumerable<ProjectProfile>> GetAllProfilesAsync()
+        public async Task<bool> AddProfileAsync(ProjectProfileCreateDto createDto)
         {
-            return _context.Profiles.ToList();
+            await _context.AddAsync(new ProjectProfile
+            {
+                ProjectName = createDto.ProjectName,
+                PermissionGroups = createDto.PermissionGroups,
+                Author = createDto.Author,
+                DateSubmitted = createDto.DateSubmitted,
+                ModifiedBy = createDto.ModifiedBy,
+                DateModified = createDto.DateModified
+            });
+
+            return SaveChanges();
         }
 
-        public async Task<ProjectProfile> GetProfileByIdAsync(int id)
+        public async Task<IEnumerable<ProjectProfileReadDto>> GetAllProfilesAsync()
         {
-            return _context.Profiles.SingleOrDefault(p => p.ID == id);
+            var result = new List<ProjectProfileReadDto>();
+
+            foreach (var row in await _context.Profiles.ToListAsync())
+            {
+                result.Add(new ProjectProfileReadDto
+                {
+                    ID = row.ID,
+                    ProjectName = row.ProjectName,
+                    PermissionGroups = row.PermissionGroups.Split(','),
+                    Author = row.Author,
+                    DateSubmitted = row.DateSubmitted
+                });
+            }
+
+            return result;
+        }
+
+        public async Task<ProjectProfileReadDto> GetProfileByIdAsync(int id)
+        {
+            var entity = await _context.Profiles.SingleOrDefaultAsync(p => p.ID == id);
+
+            return new ProjectProfileReadDto
+            {
+                ID = entity.ID,
+                ProjectName = entity.ProjectName,
+                PermissionGroups = entity.PermissionGroups.Split(','),
+                Author = entity.Author,
+                DateSubmitted = entity.DateSubmitted
+            };
+        }
+
+        public bool SaveChanges()
+        {
+            return _context.SaveChanges() >= 0;
         }
     }
 }

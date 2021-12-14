@@ -31,5 +31,13 @@ namespace Projected.ApiControllers
         {
             return Ok(await _repo.GetProfileByIdAsync(id));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddProfileAsync(ProjectProfileCreateDto createDto)
+        {
+            await _repo.AddProfileAsync(createDto);
+
+            return NoContent();
+        }
     }
 }
