@@ -1,13 +1,17 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Projected.Data.LDAP;
 using Projected.Data.Profiles;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -29,8 +33,34 @@ namespace Projected
                 (Configuration.GetConnectionString("ProfileConnection"))
             );
 
+            //Cookie Authentication
+            string loginPath = "/Account/SignIn";
+            string accessDeniedPath = "/Account/Unauthorized";
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                options.LoginPath = loginPath;
+                options.AccessDeniedPath = accessDeniedPath;
+            });
+
+            var envrionment = Configuration["Environment"];
+            if (!string.Equals(envrionment, "LOCALHOST", StringComparison.InvariantCultureIgnoreCase))
+            {
+                services.AddDataProtection()
+                    .PersistKeysToFileSystem(new DirectoryInfo("ProjectedKeyStore"))
+                    .SetApplicationName("Projected");
+            }
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
             services.AddControllersWithViews();
 
+            services.AddTransient<FncConnectToGroupLdapBehavior>();
+            services.AddTransient(x => new List<IConnectToGroupLdapBehavior>()
+            {
+                x.GetService<FncConnectToGroupLdapBehavior>()
+            });
+            services.AddTransient<IConnectToAuthLdapBehavior, CoreLogicConnectToAuthLdapBehavior>();
+            services.AddTransient<IGetLdapGroupsBehavior, GetLdapGroupsBehavior>();
             services.AddScoped<IProjectProfileRepo, ProjectProfileRepo>();
         }
 
@@ -49,7 +79,7 @@ namespace Projected
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();

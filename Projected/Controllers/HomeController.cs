@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Projected.Models;
 using System;
@@ -20,6 +21,7 @@ namespace Projected.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Groups = HttpContext.Session.GetString("Groups");
             return View();
         }
 
