@@ -21,18 +21,21 @@ namespace Projected.ApiControllers
             _repo = repo;
         }
 
+        //GET api/profiles
         [HttpGet]
         public async Task<IActionResult> GetAllProfiles()
         {
             return Ok(await _repo.GetAllProfilesAsync());
         }
 
+        //GET api/profiles/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProfileById(int id)
         {
             return Ok(await _repo.GetProfileByIdAsync(id));
         }
 
+        //POST api/profiles
         [HttpPost]
         public async Task<IActionResult> AddProfileAsync(ProjectProfileCreateDto createDto)
         {
