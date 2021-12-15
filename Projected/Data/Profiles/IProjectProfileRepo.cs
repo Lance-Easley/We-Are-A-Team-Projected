@@ -8,7 +8,10 @@ namespace Projected.Data.Profiles
 {
     public interface IProjectProfileRepo
     {
-        Task<IEnumerable<ProjectProfile>> GetAllProfilesAsync();
-        Task<ProjectProfile> GetProfileByIdAsync(int id);
+        bool SaveChanges();
+
+        Task<IEnumerable<ProjectProfileReadDto>> GetAllProfilesAsync();
+        Task<ProjectProfileReadDto> GetProfileByIdAsync(int id);
+        Task<bool> AddProfileAsync(ProjectProfileCreateDto createDto);
     }
 }
