@@ -30,7 +30,7 @@
             type: 'GET',
             success: function (data) {
                 self.groups(data);
-                window.location.replace("/Projects/" + obj.id);
+                window.location.replace("/Project/" + obj.id);
 
             },
             error: function (jqXHR, textStatus, errorThrown) {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,31 @@ namespace Projected.Controllers
 {
     public class ProjectsController : Controller
     {
-        [Route("Projects/{id:int}")]
-        public IActionResult Projects(int id)
+        [Route("Projects")]
+        public IActionResult Projects()
         {
+            ViewBag.Username = HttpContext.Session.GetString("Username");
+            ViewBag.Groups = HttpContext.Session.GetString("Groups");
+
+            if (ViewBag.Username == null)
+            {
+                return Redirect("Account/SignIn");
+            }
+            return View("ProjectsList");
+        }
+
+        [Route("Project/{id:int}")]
+        public IActionResult Project(int id)
+        {
+            ViewBag.Username = HttpContext.Session.GetString("Username");
+            ViewBag.Groups = HttpContext.Session.GetString("Groups");
+
+            if (ViewBag.Username == null)
+            {
+                return Redirect("Account/SignIn");
+            }
             ViewBag.id = id;
-            return View();
+            return View("Project");
         }
     }
 }
