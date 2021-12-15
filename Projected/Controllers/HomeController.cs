@@ -23,7 +23,12 @@ namespace Projected.Controllers
         {
             ViewBag.Username = HttpContext.Session.GetString("Username");
             ViewBag.Groups = HttpContext.Session.GetString("Groups");
-            return View();
+
+            if (ViewBag.Username == null)
+            {
+                return Redirect("Account/SignIn");
+            }
+            return View("Groups");
         }
 
         public IActionResult Privacy()

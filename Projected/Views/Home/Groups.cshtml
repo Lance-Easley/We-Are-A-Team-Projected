@@ -1,0 +1,29 @@
+﻿@{ 
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="groups-module" class="my-4">
+    <h3 class="heading-hrarw">Current AD Groups</h3>
+
+    <table class="table col-1-align-center col-2-bloat table-bordered table-striped">
+        <tbody data-bind="foreach: groups">
+            <tr>
+                <td data-bind="text: $data"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        var GroupsViewModel = function (groupsString) {
+            var self = this;
+
+            self.groups = ko.observableArray(groupsString.split("|"));
+        }
+
+        $(document).ready(function () {
+            ko.applyBindings(new GroupsViewModel("@ViewBag.Groups"), document.getElementById("groups-module"));
+        })
+    </script>
+}
