@@ -21,6 +21,7 @@ namespace Projected.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Username = HttpContext.Session.GetString("Username");
             ViewBag.Groups = HttpContext.Session.GetString("Groups");
             return View();
         }

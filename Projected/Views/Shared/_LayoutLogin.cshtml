@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/clui/dist/css/corelogic-ui.css" />
+    <link rel="stylesheet" href="~/css/toastr.min.css" />
+    <title>Projected - Login</title>
+</head>
+<body class="layout-login">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-12">
+                <nav class="navbar cl-main-nav navbar-light">
+                    <a class="navbar-brand" href="#" aria-label="CoreLogic Logo">
+                        <span class="navbar-logo"></span>
+                    </a>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-12">
+
+                <footer class="footer footer-light">
+                    <div class="footer-logo">
+                        <div class="clgx-logo"></div>
+                    </div>
+                    <div class="footer-nav">
+                        <div class="footer-date"> © 2020 CoreLogic. All Rights Reserved.</div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/corelogic-ui.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/clui/dist/js/corelogic-ui.min.js"></script>
+    <script src="~/js/Common.js"></script>
+
+    <script type="text/javascript">
+        const collapseButton = $('.collapse-button');
+        if (collapseButton !== null) {
+            collapseButton.on('click', window.CLUI.collapseDrawer);
+            collapseButton.tooltip('dispose');
+        }
+        const expandButton = $('.expand-button');
+        if (expandButton !== null) {
+            expandButton.on('click', window.CLUI.expandDrawer);
+            expandButton.tooltip('dispose');
+        }
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
