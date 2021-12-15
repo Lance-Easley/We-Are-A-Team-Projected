@@ -30,10 +30,9 @@
     <script src="~/js/homePage.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            var ProfilesViewModel = new GroupViewModel();
+            var ProfilesViewModel = new GroupViewModel(@ViewBag.Id);
             ko.applyBindings(ProfilesViewModel, document.getElementById('profilesDiv'));
             ProfilesViewModel.getProfiles();
-
         });
     </script>
 }
