@@ -2,7 +2,42 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div id="profilesDiv">
+    <div>
+        <table class="table table-bordered table-striped col-2-slim">
+            <thead>
+                <tr>
+                    <th scope="col">Project Name</th>
+                    <th scope="col">Check Box</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: profiles">
+                <tr>
+                    <td data-bind="text: projectName"></td>
+                    <td>
+                        <div class="mb-3">
+                            <button class="btn btn-primary float-right" id="ProjectsView" data-bind="click: $parent.getGroups">View Projects</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
+
+@section scripts {
+    <script src="~/js/homePage.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ProfilesViewModel = new GroupViewModel();
+            ko.applyBindings(ProfilesViewModel, document.getElementById('profilesDiv'));
+            ProfilesViewModel.getProfiles();
+
+        });
+    </script>
+}
+
+                            @*<input role="checkbox" type="checkbox" name="Checkbox" aria-checked="false" class="checkbox-default check"
+                                   data-bind="checkedValue: $data, checked: $parent.selectedId" />*@

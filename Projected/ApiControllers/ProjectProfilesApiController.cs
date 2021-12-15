@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Projected.ApiControllers
 {
+
     [Route("api/profiles")]
     [ApiController]
     public class ProjectProfilesApiController : ControllerBase

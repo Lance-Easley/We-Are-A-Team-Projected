@@ -1,0 +1,67 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "@corelogic/clui@2.0.1",
+        "scope": "@corelogic",
+        "escapedName": "@corelogic%2fclui",
+        "name": "@corelogic/clui",
+        "rawSpec": "2.0.1",
+        "spec": "2.0.1",
+        "type": "version"
+      },
+      "C:\\Integration\\Application\\HouseCanary\\HouseCanary.WebApi"
+    ]
+  ],
+  "_from": "@corelogic/clui@2.0.1",
+  "_id": "@corelogic/clui@2.0.1",
+  "_inCache": true,
+  "_location": "/@corelogic/clui",
+  "_nodeVersion": "8.11.1",
+  "_npmUser": {},
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "@corelogic/clui@2.0.1",
+    "scope": "@corelogic",
+    "escapedName": "@corelogic%2fclui",
+    "name": "@corelogic/clui",
+    "rawSpec": "2.0.1",
+    "spec": "2.0.1",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://repo2.corelogic.net/repository/npm-all/@corelogic/clui/-/clui-2.0.1.tgz",
+  "_shasum": "dbf3bceea99c92dba8375589e43f1a4524ccd8f4",
+  "_shrinkwrap": null,
+  "_spec": "@corelogic/clui@2.0.1",
+  "_where": "C:\\Integration\\Application\\HouseCanary\\HouseCanary.WebApi",
+  "bugs": {
+    "url": "https://github.com/corelogic/ensemble/issues"
+  },
+  "dependencies": {},
+  "description": "CoreLogic User Interface",
+  "devDependencies": {},
+  "dist": {
+    "integrity": "sha512-W9m4FJXbbEE62O7DYebsntiyvjlLkWeIzJdKS5+ZLoyq88YECF0LMck3nDuXwk74B5SN1P/5XfvBdijV+JH6Iw==",
+    "shasum": "dbf3bceea99c92dba8375589e43f1a4524ccd8f4",
+    "tarball": "https://repo2.corelogic.net/repository/npm-all/@corelogic/clui/-/clui-2.0.1.tgz"
+  },
+  "homepage": "https://github.com/corelogic/ensemble#readme",
+  "license": "UNLICENSED",
+  "name": "@corelogic/clui",
+  "optionalDependencies": {},
+  "publishConfig": {
+    "registry": "https://repo2.corelogic.net/repository/npm-hosted/"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corelogic/ensemble.git"
+  },
+  "scripts": {},
+  "version": "2.0.1"
+}

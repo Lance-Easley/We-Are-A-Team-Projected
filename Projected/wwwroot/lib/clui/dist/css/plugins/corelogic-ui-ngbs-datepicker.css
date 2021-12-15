@@ -1,0 +1,345 @@
+/*!-=============================================- 
+ * @corelogic/clui 2.3.1
+ * Ensemble, Design System
+ * Ensemble Team, ensemble.tsg@corelogic.com 
+-=============================================- */
+ngb-datepicker {
+  border: none !important;
+  border-radius: 0 !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+ngb-datepicker.dropdown-menu {
+  -webkit-transform: translate(0px, 38px) !important;
+          transform: translate(0px, 38px) !important;
+}
+
+ngb-datepicker .custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  width: 40px;
+  line-height: 2.2;
+}
+
+ngb-datepicker .custom-day.range, ngb-datepicker .custom-day:hover {
+  font-family: "opensans-semibold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  height: 36px;
+}
+
+ngb-datepicker .custom-day.faded {
+  font-family: "opensans-light", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  height: 36px;
+}
+
+ngb-datepicker [ngbDatepickerDayView] {
+  text-align: center;
+  width: 40px;
+  height: 36px;
+  line-height: 2.2rem;
+  border-radius: .25rem;
+  background: 0 0;
+}
+
+ngb-datepicker:before, ngb-datepicker:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: 26px;
+}
+
+ngb-datepicker:before {
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  top: -12px;
+}
+
+ngb-datepicker:after {
+  top: -12px;
+}
+
+ngb-datepicker [ngbDatepickerDayView] {
+  border-radius: 0 !important;
+}
+
+ngb-datepicker .ngb-dp-day {
+  outline: 0 !important;
+}
+
+ngb-datepicker .btn {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  text-transform: uppercase !important;
+}
+
+ngb-datepicker .ngb-dp-day, ngb-datepicker .ngb-dp-week-number, ngb-datepicker .ngb-dp-weekday {
+  width: 40px;
+  height: 36px;
+  font-size: 14px !important;
+}
+
+ngb-datepicker .ngb-dp-header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 0;
+  border-radius: 0 !important;
+  padding-top: 0 !important;
+  height: 57px;
+  text-transform: uppercase !important;
+}
+
+ngb-datepicker .ngb-dp-month-name {
+  font-family: "opensans-semibold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 34px;
+}
+
+ngb-datepicker .ngb-dp-arrow-btn {
+  margin: 0;
+  width: 57px;
+  height: 57px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 0;
+}
+
+ngb-datepicker .ngb-dp-arrow-btn:focus {
+  outline-width: 0;
+}
+
+ngb-datepicker .ngb-dp-arrow-btn:first-child .ngb-dp-navigation-chevron {
+  margin: 0 1.1rem;
+}
+
+ngb-datepicker .btn-light:hover, ngb-datepicker .btn-light:active, ngb-datepicker .btn-light:focus {
+  font-family: "opensans-semibold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  outline: 0;
+}
+
+ngb-datepicker [ngbDatepickerDayView].outside {
+  opacity: inherit !important;
+}
+
+ngb-datepicker .btn-light:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+ngb-datepicker .btn-light:not([disabled]):not(.disabled):active, ngb-datepicker .btn-light:not([disabled]):not(.disabled).active, ngb-datepicker .show > .btn-light.dropdown-toggle {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: 0;
+  font-family: "opensans-semibold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+ngb-datepicker .bg-primary:hover, ngb-datepicker .bg-primary:active, ngb-datepicker .bg-primary:focus {
+  outline: 0;
+}
+
+ngb-datepicker .ngb-dp-navigation-select .custom-select {
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+ngb-datepicker .ngb-dp-arrow {
+  height: inherit;
+}
+
+ngb-datepicker .ngb-dp-arrow.right .ngb-dp-arrow-btn .ngb-dp-navigation-chevron {
+  margin: 0 0.9rem;
+}
+
+ngb-datepicker .ngb-dp-week {
+  padding: 0 !important;
+}
+
+ngb-datepicker .ngb-dp-month {
+  margin: 7px;
+}
+
+ngb-datepicker .ngb-dp-weekday {
+  font-family: "opensans-semibold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-transform: uppercase;
+  font-size: 14px;
+  font-style: inherit;
+  font-weight: 800;
+}
+
+ngb-datepicker .ngb-dp-weekdays {
+  border-bottom: none !important;
+}
+
+ngb-datepicker .ngb-dp-weekdays.bg-light {
+  background-color: #ffffff !important;
+}
+
+ngb-datepicker .ranges {
+  background-color: #ebebeb;
+  border-top: 1px solid #aaaaaa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: none;
+  height: 50px;
+  margin: 0;
+  width: 100%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+ngb-datepicker .ranges .range_inputs {
+  border-left: 1px solid #aaaaaa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  width: 315px;
+}
+
+ngb-datepicker .ranges .range_inputs .applyBtn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 0;
+}
+
+ngb-datepicker[ng-reflect-display-months="2"] .ngb-dp-month .ngb-dp-month-name {
+  color: #404040;
+  line-height: 40px !important;
+}
+
+ngb-datepicker[ng-reflect-display-months="2"] .ngb-dp-month .ngb-dp-month-name.bg-light {
+  background-color: transparent !important;
+}
+
+ngb-datepicker .custom-day.range, ngb-datepicker .custom-day:hover {
+  background-color: #5a5a5a;
+  color: #ffffff;
+}
+
+ngb-datepicker .custom-day.faded {
+  background-color: #efefef;
+  color: #000000;
+}
+
+ngb-datepicker:before {
+  border-bottom: 12px solid #5a5a5a;
+}
+
+ngb-datepicker .ngb-dp-header {
+  background-color: #5a5a5a !important;
+}
+
+ngb-datepicker .ngb-dp-month-name {
+  color: #ffffff;
+}
+
+ngb-datepicker:first-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+ngb-datepicker .btn-light:not([disabled]):not(.disabled) {
+  -webkit-transition-property: none;
+  transition-property: none;
+}
+
+ngb-datepicker .btn-light:not([disabled]):not(.disabled):hover, ngb-datepicker .btn-light:not([disabled]):not(.disabled):active, ngb-datepicker .btn-light:not([disabled]):not(.disabled):focus {
+  /*background-color: $cl-gray-dark;
+			        border-color: rgba(255, 255, 255, 0.15);*/
+  background-color: #5a5a5a;
+  color: #ffffff;
+}
+
+ngb-datepicker .btn-light.text-muted:hover, ngb-datepicker .btn-light.text-muted:active, ngb-datepicker .btn-light.text-muted:focus {
+  color: #ffffff !important;
+}
+
+ngb-datepicker .btn-link {
+  background-color: #5a5a5a;
+  color: #ffffff !important;
+  background-image: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+ngb-datepicker .btn-link:hover, ngb-datepicker .btn-link:active, ngb-datepicker .btn-link:focus {
+  background-color: #5a5a5a;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+ngb-datepicker .btn-link:not([disabled]):not(.disabled):hover, ngb-datepicker .btn-link:not([disabled]):not(.disabled):active, ngb-datepicker .btn-link:not([disabled]):not(.disabled):focus {
+  background-color: #5a5a5a;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+ngb-datepicker .right .btn-link {
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-right: 0;
+}
+
+ngb-datepicker .bg-primary {
+  background-color: #5a5a5a !important;
+  color: #ffffff;
+}
+
+ngb-datepicker .bg-primary:hover, ngb-datepicker .bg-primary:active, ngb-datepicker .bg-primary:focus {
+  background-color: #5a5a5a;
+  color: #ffffff;
+}
+
+ngb-datepicker .ngb-dp-today .btn-light:not([disabled]):not(.disabled) {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "opensans-light", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+ngb-datepicker .ngb-dp-today .btn-light:not([disabled]):not(.disabled):hover, ngb-datepicker .ngb-dp-today .btn-light:not([disabled]):not(.disabled):active, ngb-datepicker .ngb-dp-today .btn-light:not([disabled]):not(.disabled):focus {
+  background-color: #5a5a5a;
+  color: #ffffff;
+}
+
+ngb-datepicker .ngb-dp-today .bg-primary {
+  background-color: #5a5a5a !important;
+  color: #ffffff;
+}
+
+ngb-datepicker .ngb-dp-today .bg-primary:hover, ngb-datepicker .ngb-dp-today .bg-primary:active, ngb-datepicker .ngb-dp-today .bg-primary:focus {
+  background-color: #5a5a5a;
+  color: #ffffff;
+}
+
+ngb-datepicker .ngb-dp-weekday {
+  background-color: #ffffff;
+  color: #404040;
+}
+
+ngb-datepicker .ranges, ngb-datepicker .range_inputs {
+  background-color: #ebebeb;
+  border-left: 1px solid #aaaaaa;
+}
+
+.datepicker-range .ngb-dp-month .ngb-dp-month-name {
+  color: #404040;
+  line-height: 40px !important;
+}
+
+.datepicker-range .ngb-dp-month .ngb-dp-month-name.bg-light {
+  background-color: transparent !important;
+}
+
+/*# sourceMappingURL=corelogic-ui-ngbs-datepicker.css.map */
