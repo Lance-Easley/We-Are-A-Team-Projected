@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Projects";
+}
+<div id="groupsDiv">
+    <div>
+        <h1 data-bind="text: projectName"></h1>
+        <br />
+        <table class="table table-bordered table-striped col-2-slim">
+            <thead>
+                <tr>
+                    <th scope="col">Project Name</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: permissionGroups">
+                <tr>
+                    <td data-bind="text: $data"></td>
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/js/Projects.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ProjectsViewModel = new ProjectViewModel(@ViewBag.Id);
+            ko.applyBindings(ProjectsViewModel, document.getElementById('groupsDiv'));
+            ProjectsViewModel.getGroups();
+        });
+    </script>
+}
