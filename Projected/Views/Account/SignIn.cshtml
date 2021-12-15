@@ -1,4 +1,8 @@
-﻿<div class="login-bg gradient-blue-bg " style="background-image: url('@Url.Content("~/images/laptop-photo.jpg")');">
+﻿@{ 
+    Layout = "_LayoutLogin";
+}
+
+<div class="login-bg gradient-blue-bg " style="background-image: url('@Url.Content("~/images/laptop-photo.jpg")');">
     <div class="container py-lg-5 my-lg-5">
         <div class="row no-gutters pl-3">
             <div class="order-last order-md-first col-sm-12 col-md-3 d-flex flex-column">
@@ -19,10 +23,10 @@
 
             </div>
             <div class="order-first order-md-last col-sm-12 col-md-7 offset-sm-0 offset-md-2 d-flex flex-column pb-sm-4 pb-md-0">
-                <h3 class="text-white">Welcome to the </h3>
-                <h1 class="text-white mt-2 mb-3">CMS.Net Helpdesk and API Site</h1>
+                <h3 class="text-white">Welcome to </h3>
+                <h1 class="text-white mt-2 mb-3">Projected</h1>
                 <p>
-                    This site is use for CMS administrative purposes and hosts our CMS API.
+                    This site is used for evaluating necessary AD Groups for new and existing projects.
                 </p>
                 <div role="alert" class="alert alert-danger" id="unableToSignInAlert" style="display: none">
                     Your <b>Username</b> and/or <b>Password</b> do not match our records or you do not have sufficient permissions to login.
@@ -37,9 +41,9 @@
 
 @section scripts{
     <script>
-        @*$(function() {
+        $(function() {
             window.CLUI.spinnerInit(document.getElementById('spinner'));
-        });*@
+        });
 
         $('#signInBtn').click(function () { login(); });
 
@@ -60,11 +64,9 @@
                 {
                     method: "POST",
                     data: { username: username, password: password }
-                }).done(function (data) {
-                    console.log(data)
+                }).done(function () {
                     window.location.href = "/";
-                }).fail(function (jqXHR) {
-                    console.log(jqXHR)
+                }).fail(function () {
                     jQuery('#unableToSignInAlert').show();
                     $('#signInBtn').show();
                     $('#spinnerDiv').hide();

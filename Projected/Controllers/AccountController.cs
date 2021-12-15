@@ -70,6 +70,8 @@ namespace Projected.Controllers
         {
             ViewBag.ReleaseName = _releaseName;
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Remove("Username");
+            HttpContext.Session.Remove("Groups");
             return RedirectToAction("SignIn");
         }
 
@@ -103,6 +105,7 @@ namespace Projected.Controllers
                 });
 
             HttpContext.Session.SetString("Groups", groupString);
+            HttpContext.Session.SetString("Username", username);
 
             return Ok(User.Identity.ToString());
         }
