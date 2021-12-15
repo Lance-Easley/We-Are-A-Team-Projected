@@ -27,12 +27,7 @@ namespace Projected.Controllers
         {
             return View();
         }
-        /*[Route("{id:int}")]*/
-        /*public IActionResult Projects(*//*int id*//*)
-        {
-           *//* ViewBag.id = id;*//*
-            return View();
-        }*/
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

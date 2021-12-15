@@ -23,13 +23,15 @@
     }
 
     self.getGroups = function (obj) {
+        
+  
         $.ajax({
             url: "../api/profiles/" + obj.id,
             type: 'GET',
             success: function (data) {
                 self.groups(data);
-                //window.location.href = "/home/projects";
-                console.log(self.groups(data));
+                window.location.replace("/Projects/" + obj.id);
+
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 toastr.error(jqXHR.responseText);
@@ -38,5 +40,6 @@
             }
         });
     }
+    
 
 }
